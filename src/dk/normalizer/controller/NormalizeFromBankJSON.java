@@ -39,16 +39,16 @@ public class NormalizeFromBankJSON
         {
           QueueingConsumer.Delivery delivery = consumer.nextDelivery();
           String message = new String(delivery.getBody());
-//          AMQP.BasicProperties props = delivery.getProperties();
-//          AMQP.BasicProperties replyProps = new AMQP.BasicProperties.Builder().correlationId(props.getCorrelationId()).build();
-//          System.out.println(props.getCorrelationId());
-//          System.out.println(props.getReplyTo());
+          AMQP.BasicProperties props = delivery.getProperties();
+          AMQP.BasicProperties replyProps = new AMQP.BasicProperties.Builder().correlationId(props.getCorrelationId()).build();
+          System.out.println(props.getCorrelationId());
+          System.out.println(props.getReplyTo());
           
           System.out.println(message);
           
-//          loanResponseDTO = gson.fromJson(message, LoanResponseDTO.class);
+          loanResponseDTO = gson.fromJson(message, LoanResponseDTO.class);
           
-//          System.out.println(loanResponseDTO.toString());
+          System.out.println(loanResponseDTO.toString());
           
 //          sendMessage();
 
